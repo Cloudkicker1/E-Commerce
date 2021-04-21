@@ -1,0 +1,36 @@
+.firstStepRegistrationBox {
+    position: relative;
+    margin: auto;
+    margin-bottom: 50px;
+    width: 800px;
+    height: 500px;
+    top: 100px;
+    background-color: rgb(95, 105, 160);
+    padding: 15px;
+    border: 0px solid black;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.secondStepRegistrationBox {
+    position: relative;
+    margin: auto;
+    margin-bottom: 50px;
+    width: 800px;
+    height: 500px;
+    top: 100px;
+    background-color: #29B6F6;
+    padding: 15px;
+    border: 0px solid black;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.homeBtn {
+    margin-left: 10px;
+}
+
+mat-form-field {
+    width: 100%;
+  }

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>API DOC</h1>
+
+    <h2>USER:</h2>
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Method + Path</th>
+            <th>Request / Response</th>
+        </tr>
+        <tr>
+            <td>First step of registration</td>
+            <td>POST, /firstregister</td>
+            <td>REQ: {
+                userName,
+                idNumber,
+                password}
+
+                RES: {
+                messege: 'first Step Registration Successful',
+                firstStepRegistrationInfo
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Second step of registration</td>
+            <td>POST, /secondregister</td>
+            <td>
+                REQ: { name,
+                lastName,
+                city,
+                street,
+                idNumber,
+                password,
+                userName,
+                role
+                }
+
+                RES: {
+                messege: 'Registration Successful',
+                token, newUser
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>User login</td>
+            <td>POST, /login</td>
+            <td>
+                REQ: {
+                userName,
+                pass: password
+                }
+
+                RES: {
+                success: true,
+                token,
+                currentUser:
+                currentUser
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Get user info</td>
+            <td>GET, /userinfo</td>
+            <td>
+                REQ: { id: userID }
+
+                RES: userInfo
+            </td>
+        </tr>
+        <tr>
+            <td>Get user's last order by date (descending)</td>
+            <td>GET, /lastorder</td>
+            <td>
+                REQ: { id: userID }
+
+                RES: userLastOrder
+            </td>
+        </tr>
+    </table>
+
+    <h2>STORE:</h2>
+
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Method + Path</th>
+            <th>Request / Response</th>
+        </tr>
+        <tr>
+            <td>Get homepage info</td>
+            <td>GET, /homepage</td>
+            <td>
+                RES: { ordersSummery, productsSummery }
+            </td>
+        </tr>
+        <tr>
+            <td>Get store info (products, categories)</td>
+            <td>GET, /mainstorepage</td>
+            <td>
+                RES: { categories, products }
+            </td>
+        </tr>
+    </table>
+
+    <h2>PRODUCT:</h2>
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Method + Path</th>
+            <th>Request / Response</th>
+        </tr>
+        <tr>
+            <td>Add new product to store (productList)</td>
+            <td>POST, /addproduct</td>
+            <td>REQ: {
+                name,
+                category,
+                price,
+                image,
+                amount
+                }
+
+                RES: 'New category created' || 'Product added successfully' || 'Product already exists'
+            </td>
+        </tr>
+        <tr>
+            <td>Update existing product</td>
+            <td>PUT, /updateproduct</td>
+            <td>
+                REQ: {
+                name,
+                category,
+                price,
+                image,
+                amount,
+                _id
+                }
+
+                RES: { msg: 'Product updated' }
+            </td>
+        </tr>
+        <tr>
+            <td>Filter products by category</td>
+            <td>GET, /oncategory</td>
+            <td>
+                REQ: { id: userID }
+
+                RES: { sortedProducts }
+            </td>
+        </tr>
+        <tr>
+            <td>Filter products by search pattern</td>
+            <td>GET, /search</td>
+            <td>
+                REQ: { id: userID }
+                REQ.QUERY: searchString
+
+                RES: { sortedProducts }
+            </td>
+        </tr>
+    </table>
+
+
+    <h2>ORDER:</h2>
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Method + Path</th>
+            <th>Request / Response</th>
+        </tr>
+        <tr>
+            <td>Create new order</td>
+            <td>POST, /placeorder</td>
+            <td>
+                REQ.USER: { id: userID }
+                REQ>BODY: {
+                city,
+                street,
+                shippingDate,
+                creditCard,
+                creationDate,
+                ttlPrice
+                }
+
+                RES: { msg: "Your order has been sent! thank you for choosing Super Nir!" }
+            </td>
+        </tr>
+        <tr>
+            <td>Validate if requested date isnt full</td>
+            <td>POST, /datevalidator</td>
+            <td>
+                REQ: { shippingDate }
+
+                RES: { isValid: false, msg: 'Delivery date is full, please choose A different date' }
+                ||
+                { isValid: true, msg: 'Your order has been sent! thank you for choosing Super Nir!' }
+            </td>
+        </tr>
+    </table>
+
+    <h2>CART</h2>
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Method + Path</th>
+            <th>Request / Response</th>
+        </tr>
+        <tr>
+            <td>Get user's cart products</td>
+            <td>GET, /getcartproducts</td>
+            <td>
+                REQ: { id: userID }
+
+                RES: { userCart } || { msg: "User doeasnt have a cart" }
+            </td>
+        </tr>
+        <tr>
+            <td>Add product to cart</td>
+            <td>POST, /addproducttocart</td>
+            <td>
+                REQ.USER: { id: userID }
+                REQ.BODY: { productId, amount }
+
+                RES: { msg: "Cart created & product added" }
+                ||
+                { msg: "Cart product updated", updatedCart: updatedCart}
+                ||
+                { msg: "Cart updated", cart: cart }
+            </td>
+        </tr>
+        <tr>
+            <td>Delete product from user's cart</td>
+            <td>put, /deletefromcart</td>
+            <td>
+                REQ.USER: { id: userID }
+                REQ.BODY: { productId, amount }
+
+                RES: {
+                msg: 'Item deleted successfully',
+                deletedProduct: deletedProduct
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Delete user's cart if logout action triggered while user's cart is empty </td>
+            <td>DELETE, /deleteemptycart</td>
+            <td>
+                REQ: { id: userID }
+
+                RES: { msg: "Cart Deleted" }
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<div class="loginBoxCon">
+    <div class="goToStore" *ngIf='loggedIn$ | async; else loginFormTemplate'>
+        <button mat-raised-button color='primary' (click)="loginRouting.mainStorePage()">Start shoping/Continue
+            shoping</button>
+    </div>
+    <ng-template #loginFormTemplate>
+        <div class="formCon">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <mat-label>Username:</mat-label>
+                    <input matInput placeholder="Username" type="text" formControlName="userName">
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                    <mat-label>Password:</mat-label>
+                    <input matInput placeholder="Password" type="password" formControlName="pass">
+                </mat-form-field>
+                <br />
+                <button mat-raised-button color='primary' type="submit">Log-In</button>
+            </form>
+        </div>
+        <div class="registerBtn">
+            <p>Don't have at account?</p>
+            <button mat-raised-button color='accent' (click)="loginRouting.registerPage()">Register</button>
+        </div>
+    </ng-template>
+</div>

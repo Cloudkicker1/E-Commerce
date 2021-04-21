@@ -1,0 +1,124 @@
+.checkoutPageCon {
+    position: relative;
+    top: 100px;
+    bottom: 100px;
+    margin: auto;
+    height: 500px;
+    width: 75%;
+    padding: 30px;
+}
+
+.ttlPrice {
+    position: relative;
+    left: 250px;
+    bottom: 40px;
+}
+
+.arrow {
+    width: 100px;
+    bottom: 300px;
+    position: relative;
+    margin: auto;
+}
+
+.msg {
+    position: relative;
+    margin: auto;
+}
+
+.checkoutcartCon {
+    position: relative;
+    height: 500px;
+    width: 400px;
+    background-color: #ebb67a;;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.checkoutContent {
+    position: relative;
+    top: 15px;
+    left: 15px;
+}
+
+.checkoutBoxCon {
+    position: relative;
+    bottom: 605px;
+    left: 740px;
+    height: 500px;
+    width: 400px;
+    background-color: #ebb67a;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cartProducts {
+    position: relative;
+    height: 452px;
+    bottom: 20px;
+    overflow-y: auto;
+}
+
+.product {
+    background-color: rgba(52, 221, 165, 0.767);
+    width: 385px;
+    float: left;
+    border-radius: 0 25px 25px 0;
+    margin-bottom: 15px;
+}
+
+.cartProductImg {
+    position: relative;
+    margin-top: 10px;
+    height: 150px;
+    width: 150px;
+    left: 200px;
+    bottom: 90px;
+    border-radius: 25px;
+}
+
+.cartProductInfo {
+    text-align: center;
+    font-size: 20px;
+    width: 190px;
+}
+
+.deleteBtn {
+    position: relative;
+    bottom: 30px;
+    left: 140px;
+}
+
+.content {
+    position: relative;
+    top: 15px;
+    margin-left: 15px;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+.homeBtn {
+    margin-left: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    position: relative;
+    right: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #dbce85a2;
+    border-radius: 0 25px 25px 0;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+          border-radius: 0 25px 25px 0;
+    background: rgba(52, 221, 165, 0.767);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(85, 155, 85);
+}

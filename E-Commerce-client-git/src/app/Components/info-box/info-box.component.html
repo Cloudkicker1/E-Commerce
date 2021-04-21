@@ -1,0 +1,26 @@
+<div class="infoBoxCon">
+    <div class="imgCon">
+        <!-- <img src={{imgUrl}}> -->
+    </div>
+    <p>Available Products: {{numOfProducts$ | async}}</p>
+    <p>Orders Done: {{numOfOrders$ | async}}</p>
+
+    <div class="notifications" *ngIf="(isLoggedin$ | async) === true">
+        <div *ngIf="(activeCart$ | async); else lastOrder">
+            You have an open Cart!
+            Created at {{(activeCart$ | async).date}},
+            <br />
+            Total Price of {{(activeCart$ | async).ttlPrice}}
+        </div>
+        <ng-template #lastOrder>
+            <div *ngIf="(userLastOrder$ | async); else newCostumer">
+                Well, your cart is empty.
+                But your last order was on {{(userLastOrder$ | json)}}.
+                Welcome back
+            </div>
+        </ng-template>
+        <ng-template #newCostumer>
+            Welcome to Super Nir!
+        </ng-template>
+    </div>
+</div>

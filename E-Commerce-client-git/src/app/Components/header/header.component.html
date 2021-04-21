@@ -1,0 +1,21 @@
+<header>
+    <h1>
+        {{title}}
+    </h1>
+    <div class="paraCon">
+        <a class="API" href="APIDoc.html" target="_blank">API documentation</a>
+        <p class="contact">
+            Contact Us: {{email}}/{{phoneNum}}
+        </p>
+        <div class="greetings" *ngIf='loggedIn$ | async; else Guest'>
+            Greetings {{ (name$ | async) }}!
+        </div>
+        <ng-template #Guest>
+            Greetings Guest!
+        </ng-template>
+    </div>
+    <div class="logOutBtn" *ngIf="loggedIn$ | async">
+        <button mat-raised-button color='warn' (click)="logout()">Log-Out</button>
+    </div>
+
+</header>

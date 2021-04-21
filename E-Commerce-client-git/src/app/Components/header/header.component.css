@@ -1,0 +1,51 @@
+header {
+    position: relative;
+    height: 100px;
+    width: 1200px;
+    margin: auto;
+    background-color: rgb(235, 182, 122);
+    padding: 15px;
+    border: 0px solid black;
+    border-radius: 25px;
+    top: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+    position: relative;
+    display: inline;
+    margin: auto 10px auto 10px;
+    top: 25px;
+}
+
+.contact {
+    position: relative;
+    bottom: 15px;
+}
+
+.paraCon {
+    position: relative;
+    width: 230px;
+    margin-left: 950px;
+    right: 70px;
+    bottom: 30px;
+    font-size: 20px;
+}
+
+.logOutBtn {
+    position: relative;
+    display: inline;
+    bottom: 60px;
+    left: 1090px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.greetings {
+    font-weight: bold;
+}
+
+.API {
+    position: relative;
+    bottom: 10px;
+    left: 150px;
+}

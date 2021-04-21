@@ -1,0 +1,31 @@
+.cartBtn {
+    position: absolute;
+    right: 1360px;
+    bottom: 485px;
+}
+
+.addProduct {
+    position: absolute;
+    right: 1360px;
+    bottom: 485px;
+}
+
+.addProductBox {
+    position: relative;
+    bottom: 575px;
+    width: 195px;
+    height: 380px;
+    background-color: #ebb67a;
+    border-radius: 0 25px 25px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cartProductsCon {
+    position: relative;
+    bottom: 575px;
+    width: 215px;
+    height: 380px;
+    background-color: #ebb67a;
+    border-radius: 0 25px 25px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

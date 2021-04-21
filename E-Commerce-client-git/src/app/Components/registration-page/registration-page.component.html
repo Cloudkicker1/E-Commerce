@@ -1,0 +1,69 @@
+<div class="firstStepRegistrationBox" *ngIf="(firstRegistrationInfo$ | async) === null; else secondStep">
+    <h2>First Step Registration:</h2>
+    <form [formGroup]="firstStepRegistrationForm" name="registerForm" (ngSubmit)="firstRegisterInfo()">
+
+        <mat-form-field>
+            <mat-label>Username:</mat-label>
+            <input matInput placeholder="Username" type="text" formControlName="userName" required />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+            <mat-label>Password:</mat-label>
+            <input matInput placeholder="Password" type="password" formControlName="password" required />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+            <mat-label>Confirm Password:</mat-label>
+            <input matInput placeholder="Password" type="password" formControlName="confirmPassword" required />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+            <mat-label>ID Number:</mat-label>
+            <input matInput placeholder="ID Number" type="text" formControlName="idNumber" required />
+        </mat-form-field>
+        <br />
+
+        <button mat-raised-button color='accent' type="submit" [disabled]="!firstStepRegistrationForm.valid">Register
+            1st
+            Step</button>
+        <button class="homeBtn" mat-fab color="warn" (click)="registerRouting.homePage()" type="button">
+            <mat-icon>home</mat-icon>
+        </button>
+    </form>
+</div>
+<ng-template #secondStep>
+    <div class="secondStepRegistrationBox">
+        <h2>Second Step Registration:</h2>
+        <form [formGroup]="secondStepRegistrationForm" name="secondStepRegistrationForm"
+            (ngSubmit)="secondRegisterInfo()">
+            <mat-form-field>
+                <mat-label>Name:</mat-label>
+                <input matInput placeholder="Name" type="text" formControlName="name" required />
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-label>Last Name:</mat-label>
+                <input matInput placeholder="Last Name" type="text" formControlName="lastName" required />
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-select placeholder="City" formControlName="city">
+                    <mat-option *ngFor="let city of cities" [value]="city.value">
+                        {{city.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-label>Street:</mat-label>
+                <input matInput placeholder="Street" type="text" formControlName="street" required />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color='accent' type="submit"
+                [disabled]="!secondStepRegistrationForm.valid">Register</button>
+            <button class="homeBtn" mat-fab color="warn" (click)="registerRouting.homePage()" type="button">
+                <mat-icon>home</mat-icon>
+            </button>
+        </form>
+    </div>
+</ng-template>

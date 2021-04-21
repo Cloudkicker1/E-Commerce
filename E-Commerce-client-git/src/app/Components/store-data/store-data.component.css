@@ -1,0 +1,168 @@
+.categoriesCon {
+    position: relative;
+    top: 30px;
+    background-color: rgb(220, 226, 255);
+    margin: auto;
+    height: 50px;
+    width: 75%;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.msgs {
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    top: 50px;
+    margin: auto;
+    height: 50px;
+    width: 500px;
+    background-color: rgb(235, 182, 122);;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation: fadeinout 2s linear forwards;
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.msgContent {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    top: 10px;
+    width: 350px;
+}
+
+.productsCon {
+    text-align: center;
+    position: relative;
+    margin: auto;
+    top: 60px;
+    height: 700px;
+    width: 75%;
+    border-radius: 25px;
+}
+
+.updateProductBox {
+    position: relative;
+    bottom: 575px;
+    width: 195px;
+    height: 380px;
+    background-color: #ebb67a;
+    border-radius: 0 25px 25px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.updateProductFormContainer {
+    position: relative;
+    left: 10px;
+}
+
+.mat-myKindOfBlue {
+    background-color: #40C4FF;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.addToCartBtn {
+    position: absolute;
+    left: 175px;
+    bottom: 10px;
+}
+
+.deleteProductBtn {
+    position: absolute;
+    left: 175px;
+    bottom: 10px;
+}
+
+.category {
+    float: left;
+    margin-left: 10px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.categoryBtns {
+    position: relative;
+    left: 85px;
+    bottom: 13px;
+}
+
+.allProductsBtn {
+    border-radius: 25px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.categoriesList {
+    float: left;
+}
+
+.categoryButton {
+    border-radius: 25px;
+}
+
+.title {
+    position: relative;
+    margin-left: 10px;
+    top: 13px;
+    font-size: 15px;
+}
+
+.product {
+    text-align: center;
+    margin-left: 25px;
+    position: relative;
+    margin-bottom: 15px;
+    background-color: rgb(243, 74, 108);
+    padding: 25px;
+    height: 250px;
+    width: 200px;
+    float: left;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.productList {
+    width: 1125px;
+    height: 650px;
+    position: relative;
+    left: 10px;
+    float: left;
+}
+
+
+.productImg {
+    margin-top: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content {
+    position: relative;
+}
+
+/* .searchBtn {
+    position: relative;
+    top: 35px;
+    left: 15px;
+}
+
+.searchInput {
+    position: relative;
+    top: 30px;
+    left: 15px;
+} */
+
+.searchCon {
+    position: relative;
+    left: 170px;
+    display: inline;
+}

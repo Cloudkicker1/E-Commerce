@@ -1,0 +1,28 @@
+<div class="cartCon">
+    <h2>My Cart</h2>
+    <span class="checkoutBtn">
+        <button type="button" mat-button (click)="checkout()"><img
+                src="https://img.icons8.com/color/48/000000/checkout.png" /></button>
+    </span>
+    <div class="ttlPrice">TOTAL PRICE: {{(userCart$ | async).ttlPrice}}$</div>
+    <div class="cartProducts">
+        <div *ngFor="let product of userCartProducts">
+            <div class="product">
+                <div class="content">
+                    Name: {{product.name}}
+                    <br />
+                    Category: {{product.category}}
+                    <br />
+                    Price: {{product.price}}$
+                    <br />
+                    Amount: {{product.amount}}
+                    <br />
+                    <img class="cartProductImg" src="{{product.image}}">
+                    <button class="cartDltBtn" type="button" mat-button
+                        (click)="deleteFromCart(product._id, product.amount)"><img
+                            src="https://img.icons8.com/material/24/000000/delete-trash.png" /></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

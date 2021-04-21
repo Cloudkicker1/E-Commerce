@@ -1,0 +1,66 @@
+<div class="checkoutPageCon">
+    <div class="checkoutcartCon">
+        <h2>My Cart</h2>
+        <div class="ttlPrice">TOTAL PRICE: {{priceSum?.toFixed(2)}}$</div>
+        <div class="cartProducts">
+            <div *ngFor="let product of userCartProducts">
+                <div class="product">
+                    <div class="content">
+                        <div class="cartProductInfo">
+                            <mat-card-content class="content">
+                                <mat-card-title>{{product.name}}</mat-card-title>
+                                <br />
+                                <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+                                <br />
+                                Price: {{product.price}}$
+                                <br />
+                                Amount: {{product.amount}}
+                                <br />
+                            </mat-card-content>
+                        </div>
+                        <img class="cartProductImg" src="{{product.image}}">
+                        <button class="deleteBtn" type="button" mat-button
+                            (click)="deleteFromCart(product._id, product.amount)"><img
+                                src="https://img.icons8.com/material/48/000000/delete-trash.png" /></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="arrow"><img src="https://img.icons8.com/color/100/000000/arrow.png" /></div>
+    <div class="checkoutBoxCon">
+        <div class="checkoutContent">
+            <h3>Shipping Information:</h3>
+            <form [formGroup]="checkoutForm" name="registerForm" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <mat-label>City:</mat-label>
+                    <input matInput placeholder="City" type="text" formControlName="city" required />
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                    <mat-label>Street:</mat-label>
+                    <input matInput placeholder="Street" type="text" formControlName="street" required />
+                </mat-form-field>
+                <br />
+                <h3>Shipping Date:</h3>
+                <mat-form-field>
+                    <mat-label>Shipping Date:</mat-label>
+                    <input matInput type="date" formControlName="shippingDate" required />
+                </mat-form-field>
+                <br />
+                <h3>Payment:</h3>
+                <mat-form-field>
+                    <mat-label>Credit-Card:</mat-label>
+                    <input matInput placeholder="Street" type="text" formControlName="creditCard" required />
+                </mat-form-field>
+                <br />
+                <button mat-raised-button color='accent' type="submit" [disabled]="!checkoutForm.valid">Place
+                    Order</button>
+                <button class="homeBtn" mat-raised-button color="warn" (click)="checkoutRouting.mainstorepage()"
+                    type="button">
+                    Continue shopping
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

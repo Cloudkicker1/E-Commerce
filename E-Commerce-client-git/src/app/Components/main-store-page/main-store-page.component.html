@@ -1,0 +1,24 @@
+<app-store-data></app-store-data>
+<div *ngIf="isCart">
+    <div class="cartProductsCon">
+        <app-cart></app-cart>
+    </div>
+</div>
+<div *ngIf="isAddProduct">
+    <div class="addProductBox">
+        <app-add-product></app-add-product>
+    </div>
+</div>
+<div *ngIf="(userRole$ | async) === 'admin'; else CartBtn">
+    <div class="addProduct">
+        <button mat-button type="button" (click)="toggleAddproduct()"><img
+                src="https://img.icons8.com/material/48/000000/add-to-database.png" /></button>
+    </div>
+</div>
+<ng-template #CartBtn>
+    <div class="cartBtn">
+        <button mat-button type="button" (click)="toggleCart()">
+            <img src="https://img.icons8.com/color/48/000000/shopping-cart.png" />
+        </button>
+    </div>
+</ng-template>

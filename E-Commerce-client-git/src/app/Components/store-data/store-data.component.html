@@ -1,0 +1,89 @@
+<div class="searchCon">
+    <mat-form-field class="searchInput">
+        <mat-label><img src="https://img.icons8.com/material-two-tone/24/000000/search.png" /></mat-label>
+        <input [(ngModel)]="searchString" matInput placeholder="search" type="text" />
+    </mat-form-field>
+    <button class="searchBtn" type="button" mat-button (click)="search()">Search</button>
+</div>
+<div class="storeDataCon">
+    <div class="categoriesCon">
+        <span class="title">
+            Categories:
+        </span>
+        <div class="categoryBtns">
+            <div class="allProductsBtn">
+                <button mat-raised-button color='myKindOfBlue' class="categoryButton" (click)="getAllProducts()">All
+                    Products</button>
+            </div>
+            <div *ngFor="let category of categoriesList$ | async" class="categoriesList">
+                <div class="category">
+                    <button mat-raised-button color='primary' class="categoryButton"
+                        (click)="getProductsByCategoty(category)">{{category.category}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="productsCon">
+        <div class="productList">
+            <div *ngFor="let product of productsList$ | async">
+                <mat-card class="product"
+                    (click)="changeFocusedProduct(product.name, product.category, product.price, product.image, product.amount, product._id)">
+                    <mat-card-content class="content">
+                        <mat-card-title>{{product.name}}</mat-card-title>
+                        <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+
+                        Price: {{product.price}}$
+                        <br />
+                        Amount: {{product.amount}}
+                        <br />
+                        <img class="productImg" src="{{product.image}}">
+                    </mat-card-content>
+                    <div *ngIf="(userRole$ | async) === 'user';">
+                        <button class="addToCartBtn" mat-button type="button"
+                            (click)="openDialog(product._id, product.price)"><img
+                                src="https://img.icons8.com/color/48/000000/add-shopping-cart.png" /></button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div class="updateProductBox" *ngIf="isUpdate === true">
+        <div class="updateProductFormContainer">
+            <h2>Update Product</h2>
+            <form [formGroup]="updateProductForm" name="updateProductForm" (ngSubmit)="updateProduct()">
+                <mat-form-field>
+                    <mat-label>Name:</mat-label>
+                    <input matInput placeholder="Name" [(ngModel)]="name" type="text" formControlName="name" required />
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                    <mat-label>Category:</mat-label>
+                    <input matInput placeholder="Category" [(ngModel)]="category" value="currentProduct.category"
+                        type="text" formControlName="category" required />
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                    <mat-label>Price:</mat-label>
+                    <input matInput placeholder="Price" [(ngModel)]="price" value="currentProduct.price" type="text"
+                        formControlName="price" required />
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                    <mat-label>Image:</mat-label>
+                    <input matInput placeholder="Image" [(ngModel)]="image" value="currentProduct.image" type="text"
+                        formControlName="image" required />
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                    <mat-label>Amount:</mat-label>
+                    <input matInput type="number" [(ngModel)]="amount" value="currentProduct.amount"
+                        formControlName="amount" required />
+                </mat-form-field>
+                <br />
+                <button mat-raised-button color='accent' type="submit" [disabled]="!updateProductForm.valid">Update
+                    Product</button>
+            </form>
+        </div>
+    </div>
+</div>
