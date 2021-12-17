@@ -1,1 +1,3 @@
-Install Node in both folders (npm i/npm install in terminal)
+Install npm in both folders
+
+`npm i/npm install in terminal`
